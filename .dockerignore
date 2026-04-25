@@ -3,3 +3,13 @@ node_modules
 .gitignore
 *.md
 dist
+.env
+.DS_Store
+*.log
+coverage
+.nyc_output
+.vscode
+.idea
+*.tsbuildinfo
+sessions
+temp

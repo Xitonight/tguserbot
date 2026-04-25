@@ -1,9 +1,0 @@
-services:
-  xitonightbot:
-    build:
-      context: .
-    restart: always
-    env_file:
-      - .env
-    volumes:
-      - ./sessions:/app/sessions
