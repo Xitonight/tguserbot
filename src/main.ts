@@ -10,14 +10,30 @@ const tg = new TelegramClient({
 
 const dp = Dispatcher.for(tg);
 
+const allowedIds = [611938392];
+
 dp.onNewMessage(
-  filters.and(filters.userId(611938392), filters.command("id")),
+  filters.and(filters.userId(allowedIds), filters.command("id")),
   async (upd) => {
     const replyTo = await upd.getReplyTo();
-    await upd.delete();
-    await upd.replyText(
-      md`**User ID**: ${replyTo ? replyTo.sender.id : upd.sender.id}`,
-    );
+    await upd.edit({
+      text: md`**User ID**: ${replyTo?.sender.id || upd.sender.id}`,
+    });
+  },
+);
+
+dp.onNewMessage(
+  filters.and(filters.userId(allowedIds), filters.command("chid")),
+  async (upd) => {
+    await upd.edit({ text: md`**Chat ID**: ${upd.chat.id}` });
+  },
+);
+
+dp.onNewMessage(
+  filters.and(filters.userId(allowedIds), filters.command("msgid")),
+  async (upd) => {
+    const replyTo = await upd.getReplyTo();
+    await upd.edit({ text: md`**Message ID**: ${replyTo?.id || upd.id}` });
   },
 );
 

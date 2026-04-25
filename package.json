@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "dev": "dotenv tsx watch ./src/main.ts",
-    "start": "tsx ./src/main.ts"
+    "start": "dotenv tsx ./src/main.ts"
   },
   "dependencies": {
     "@mtcute/dispatcher": "^0.27.1",
