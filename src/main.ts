@@ -13,7 +13,7 @@ const dp = Dispatcher.for(tg);
 const allowedIds = [611938392];
 
 dp.onNewMessage(
-  filters.and(filters.userId(allowedIds), filters.command("id")),
+  filters.and(filters.userId(allowedIds), filters.command(["uid", "userid"])),
   async (upd) => {
     const replyTo = await upd.getReplyTo();
     await upd.edit({
@@ -23,14 +23,14 @@ dp.onNewMessage(
 );
 
 dp.onNewMessage(
-  filters.and(filters.userId(allowedIds), filters.command("chid")),
+  filters.and(filters.userId(allowedIds), filters.command(["chid", "chatid"])),
   async (upd) => {
     await upd.edit({ text: md`**Chat ID**: ${upd.chat.id}` });
   },
 );
 
 dp.onNewMessage(
-  filters.and(filters.userId(allowedIds), filters.command("msgid")),
+  filters.and(filters.userId(allowedIds), filters.command(["msgid", "id"])),
   async (upd) => {
     const replyTo = await upd.getReplyTo();
     await upd.edit({ text: md`**Message ID**: ${replyTo?.id || upd.id}` });
