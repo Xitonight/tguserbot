@@ -8,20 +8,19 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "dev": "dotenv tsx watch ./src/main.ts",
-    "build": "esbuild src/main.ts --bundle --platform=node --target=node22 --format=esm --outfile=dist/main.js --external:@mtcute/* --external:dotenv-cli --external:zod --external:openai",
+    "build": "esbuild src/main.ts --bundle --platform=node --target=node22 --format=esm --outfile=dist/main.js --external:@mtcute/* --external:dotenv-cli --external:zod",
     "start": "node dist/main.js"
   },
   "dependencies": {
-    "@mtcute/dispatcher": "^0.27.1",
-    "@mtcute/node": "^0.27.1",
+    "@mtcute/dispatcher": "^0.27.9",
+    "@mtcute/node": "^0.27.9",
     "dotenv-cli": "^11.0.0",
-    "openai": "^6.34.0",
     "tsx": "^4.21.0",
-    "zod": "^4.1.13"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.4.1",
-    "@types/node": "^24.10.1",
+    "@antfu/eslint-config": "^6.7.3",
+    "@types/node": "^24.12.2",
     "esbuild": "^0.28.0",
     "typescript": "^5.9.3"
   },
