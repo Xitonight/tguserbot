@@ -37,9 +37,29 @@ dp.onNewMessage(
   },
 );
 
+const abortController = new AbortController();
+
+// Handle termination signals
+process.on("SIGTERM", () => {
+  console.log("Received SIGTERM, aborting...");
+  abortController.abort();
+});
+
+process.on("SIGINT", () => {
+  console.log("Received SIGINT, aborting...");
+  abortController.abort();
+});
+
 const user = await tg.start({
   phone: env.PHONE_NUMBER,
   password: env.TG_PASSWORD,
+  abortSignal: abortController.signal,
 });
 
 console.log("Logged in as", user.username);
+
+abortController.signal.addEventListener("abort", () => {
+  console.log("Bot is shutting down gracefully...");
+  // mtcute handles the cleanup internally
+  process.exit(0);
+});
