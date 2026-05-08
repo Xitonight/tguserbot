@@ -15,12 +15,13 @@
     "@mtcute/dispatcher": "^0.29.6",
     "@mtcute/node": "^0.29.6",
     "dotenv-cli": "^11.0.0",
-    "tsx": "^4.21.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
     "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "tsx": "^4.21.0",
     "esbuild": "^0.28.0",
     "typescript": "^6.0.3"
   },

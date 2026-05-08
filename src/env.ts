@@ -2,10 +2,10 @@ import { z } from "zod";
 
 const r = z
   .object({
-    API_ID: z.coerce.number(),
-    API_HASH: z.string(),
-    PHONE_NUMBER: z.string(),
-    TG_PASSWORD: z.string(),
+    "API_ID": z.coerce.number(),
+    "API_HASH": z.string(),
+    "PHONE_NUMBER": z.string(),
+    "TG_PASSWORD": z.string(),
   })
   .safeParse(process.env);
 
